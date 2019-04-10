@@ -1,0 +1,31 @@
+.delete-issue {
+  line-height: 1.5;
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-button {
+  background: none;
+  border: 0;
+  padding: 0 2px;
+  line-height: 19px;
+  height: 19px;
+  width: 19px;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* OVERRIDES */
+.issue .id {
+  height: 17px !important;
+}
+
+.issue .subject.editable {
+  height: 40px !important;
+  padding: 5px 2px 2px !important;
+}
