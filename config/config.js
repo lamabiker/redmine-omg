@@ -2,7 +2,7 @@ const config = {
   options: {
     redirectIssues: true
   },
-  root: 'https://sysops-redmine.storyful.com',
+  root: 'https://redmine.storyful.com',
   paths: {
     taskboard: '/rb/projects/mercury/taskboard'
   },
