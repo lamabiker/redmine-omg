@@ -1,5 +1,5 @@
 {
-  "name": "Redmine extension",
+  "name": "Redmine OMG",
   "version": "1.0.0",
   "description": "Extension to help with Redmine development",
   "permissions": ["tabs", "https://sysops-redmine.storyful.com/*", "storage"],
