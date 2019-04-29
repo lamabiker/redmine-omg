@@ -14,7 +14,16 @@ const config = {
       this.options[option] = options[option];
     }
   }
-}
+};
+
+const today = () => {
+  const date = new Date();
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+};
+
+const deleteableElements = [
+  '.remaininghours'
+];
 
 const customButtons = [
   {
@@ -34,8 +43,18 @@ const customButtons = [
     ticketText: 'Do it'
   },
   {
+    button: '🕵️‍',
+    title: 'Investigate',
+    ticketText: 'Investigate'
+  },
+  {
     button: '︎🔧',
     title: 'Fix it',
     ticketText: 'Fix it'
+  },
+  {
+    button: '📅',
+    title: 'Set deploy date to today',
+    ticketText: today()
   }
 ];
