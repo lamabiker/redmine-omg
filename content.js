@@ -86,9 +86,9 @@ function addNewTaskButton(story) {
   if(!storyHeader) return;
 
   customButtons.forEach(customButton => {
-    let { button, title, ticketText, assignee } = customButton;
-    let buttonElement = createTaskButton(button, title);
-    buttonElement.onclick = () => { createTask(story, ticketText, assignee) };
+    const { button, title } = customButton;
+    const buttonElement = createTaskButton(button, title);
+    buttonElement.onclick = () => { createTask(story, customButton) };
     storyHeader.appendChild(buttonElement);
   });
 }
@@ -102,11 +102,16 @@ function createTaskButton(text, title, story) {
   return button;
 }
 
-function createTask(story, ticketText, assignee) {
+function createTask(story, taskDetails) {
+  const { ticketText, assignee, hours } = taskDetails;
+  const queryStr = name => `#task_editor [name="${name}"]`;
+
   story.querySelector('.add_new').click();
-  document.querySelector('#task_editor [name="subject"]').value = ticketText;
-  document.querySelector('#task_editor [name="remaining_hours"]').value = 1;
-  if(assignee) document.querySelector('#task_editor [name="assigned_to_id"]').value = assignee;
+
+  document.querySelector(queryStr('subject')).value = ticketText;
+
+  if(hours) document.querySelector(queryStr('remaining_hours')).value = hours;
+  if(assignee) document.querySelector(queryStr('assigned_to_id')).value = assignee;
 
   const buttons = document.querySelectorAll('.ui-button-text');
 

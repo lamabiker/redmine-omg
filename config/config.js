@@ -30,27 +30,32 @@ const customButtons = [
     button: '👍',
     title: 'Add PO sign off story',
     ticketText: '[PO] sign off',
-    assignee: 105 // Shweta
+    assignee: 105, // Shweta
+    hours: 1
   },
   {
     button: '🤖',
     title: 'Add dev sign off story',
-    ticketText: 'PR, merge, release, deploy'
+    ticketText: 'PR, merge, release, deploy',
+    hours: 1
   },
   {
     button: '✔︎',
     title: 'Do it',
-    ticketText: 'Do it'
+    ticketText: 'Do it',
+    hours: 1
   },
   {
     button: '🕵️‍',
     title: 'Investigate',
-    ticketText: 'Investigate'
+    ticketText: 'Investigate',
+    hours: 1
   },
   {
     button: '︎🔧',
     title: 'Fix it',
-    ticketText: 'Fix it'
+    ticketText: 'Fix it',
+    hours: 1
   },
   {
     button: '📅',
