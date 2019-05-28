@@ -12,7 +12,6 @@ function init() {
   // Redirect to taskboard from issues
   if(config.options.redirectIssues &&
      window.location.href.match(/.*\/(.*)$/)[1] === 'issues') {
-
     window.location.replace(config.getPath('taskboard'));
   }
 
@@ -25,6 +24,50 @@ function init() {
     addElements('issue', addDeleteButton);
     checkDateTickets();
   }, 5000);
+
+  if(window.location.href.indexOf('master_backlog') > -1) {
+    window.setTimeout(initBacklogPage, 1000);
+  }
+}
+
+function initBacklogPage() {
+  const backlog = document.getElementById('sprint_backlogs_container');
+  const button = document.createElement('button');
+  button.className = 'add-stories-button';
+  button.innerHTML = `Add stuff`;
+  button.onclick = injectBaseStories;
+
+  backlog.insertBefore(button, backlog.firstChild);
+}
+
+function injectBaseStories() {
+  customStories.forEach(injectBaseStory);
+}
+
+function storyAlreadyThere(subject) {
+  const stories = document.querySelectorAll('#sprint_backlogs_container .story_field[fieldtype="textarea"]');
+  return ![...stories].every(story => story.innerHTML.indexOf(subject) === -1);
+}
+
+function injectBaseStory(story) {
+  const { subject, type, storyPoints } = story;
+
+  if (storyAlreadyThere(subject)) return;
+  
+  const newStoryButton = document.querySelector('.add_new_story.project_id_32');
+  const mouseupEvent = new MouseEvent('mouseup', {
+    view: window, cancelable: true, bubbles: true
+  });
+  
+  newStoryButton.dispatchEvent(mouseupEvent);
+
+  document.querySelector('textarea[name="subject"]').value = subject;
+  if (type)
+    document.querySelector('select[name="tracker_id"]').value = type;
+  if (storyPoints)
+    document.querySelector('select[name="story_points"]').value = storyPoints;
+
+  document.querySelector('.edit-actions .save').click();
 }
 
 function checkDateTickets() {

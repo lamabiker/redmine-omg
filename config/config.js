@@ -25,6 +25,32 @@ const deleteableElements = [
   '.remaininghours'
 ];
 
+const customStories = [
+  {
+    subject: 'Tech Work',
+    type: 3,
+    storyPoints: '1.0'
+  },
+  {
+    subject: 'Chapter work',
+    type: 3
+  },
+  {
+    subject: 'Gold Card',
+    type: 10,
+    storyPoints: '1.0'
+  },
+  {
+    subject: 'Retro Action',
+    type: 11,
+    storyPoints: '1.0'
+  },
+  {
+    subject: 'Who is doing the next retro?',
+    type: 11
+  }
+]
+
 const customButtons = [
   {
     button: '👍',

@@ -24,6 +24,16 @@
   cursor: pointer;
 }
 
+.add-stories-button {
+  margin: 0 0 10px;
+  background: linear-gradient(#EEE, #EDD5EE);
+  border: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
 .has-warning:after {
   content: ' ⚠️';
 }
